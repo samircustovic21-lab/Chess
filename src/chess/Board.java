@@ -1,12 +1,15 @@
-package chss;
+    package chess;
 
-public class Board {
+    public class Board {
 
-    private Piece [][] board;
+        private Piece [][] board;
 
-    public Board() {
-        board = new Piece [8][8];
-        
+        public Board() {
+            board = new Piece [8][8];
+    }
+
+    public void placePiece (Piece piece, int x, int y) {
+        board[x][y] = piece;
     }
 
 }
