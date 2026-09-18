@@ -11,5 +11,16 @@
     public void placePiece (Piece piece, int x, int y) {
         board[x][y] = piece;
     }
+    
+    public Piece getPiece (int x, int y) {
+            return board[x][y];
+        }
 
-}
+        public void removePiece (int x, int y) {
+            board[x][y] = null;
+        }
+
+        public boolean isOccupied (int x, int y) {
+            return board[x][y] != null;
+        }
+    }
