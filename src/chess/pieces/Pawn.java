@@ -1,7 +1,6 @@
 package chess.pieces;
-
 import chess.Piece;
-import chess.Color
+import chess.Color;
 
 public class Pawn extends Piece {
 
@@ -45,16 +44,62 @@ public class Pawn extends Piece {
             return false;
         }
 
-        return true;
+            return true;
     }
 
 
 
-        public boolean isValidMove (Board board, int newX, int newY) {
+    public boolean isValidMove (Board board, int newX, int newY) {
 
+        int deltaX = newX - this.getX();
+        int deltaY = newY - this.getY();
+
+    // Måste gå framåt
+        if (deltaY * this.getDirection() <= 0) {
+            return false;
+    }
+
+    // Får inte gå mer än maxantalet steg
+        if (Math.abs(deltaY) > this.getMaxMove()) {
+            return false;
+    }
+
+    // Går rakt fram
+        if (deltaX == 0) {
+
+        // Det får inte finnas en pjäs framför
         if (board.isOccupied(newX, newY)) {
             return false;
         }
+
+        // Om bonden går två steg måste rutan mellan vara tom
+        if (Math.abs(deltaY) == 2) {
+            int middleY = this.getY() + this.getDirection();
+
+        if (board.isOccupied(this.getX(), middleY)) {
+            return false;
+            }
+        }
+
+        return true;
     }
 
+    // Går diagonalt
+        if (Math.abs(deltaX) == 1 && Math.abs(deltaY) == 1) {
 
+        // Det måste finnas en pjäs att slå
+        if (!board.isOccupied(newX, newY)) {
+            return false;
+        }
+
+        // Det måste vara en motståndarpjäs
+        if (board.getPiece(newX, newY).getColor() == this.getColor()) {
+            return false;
+        }
+
+            return true;
+        }
+
+           
+    }
+}
