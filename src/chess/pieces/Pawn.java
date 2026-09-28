@@ -1,6 +1,8 @@
 package chess.pieces;
+
 import chess.Piece;
 import chess.Color;
+import chess.Board;
 
 public class Pawn extends Piece {
 
@@ -99,6 +101,8 @@ public class Pawn extends Piece {
 
             return true;
         }
+
+            return false;
 
            
     }

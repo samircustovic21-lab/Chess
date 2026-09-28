@@ -7,9 +7,9 @@ public class Piece {
     private int y;
 
     public Piece (Color color, int x, int y) {
-        this.color = color
-        this.x = x
-        this.y = y
+        this.color = color;
+        this.x = x;
+        this.y = y;
 
     }
 
