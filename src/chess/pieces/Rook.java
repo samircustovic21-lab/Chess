@@ -46,6 +46,13 @@ public boolean isValidMove(int newX, int newY, Board board) {
     }
 
     return true;
-}
 
 }
+    // kontrollera vilken färg pjäsen som står i ankomstrutan har 
+    if (board.isOccupied(newX, newY)) {
+        if(board.getPiece(newX,newY).get.color == this.getColor()) {
+            return false;
+        }
+    }
+}
+
