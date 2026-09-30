@@ -1,6 +1,6 @@
 package chess;
 
-public class Piece {
+public abstract class Piece {
 
     private Color color;
     private int x;
@@ -28,4 +28,6 @@ public class Piece {
         return y;
 
     }
+    
+    public abstract boolean isValidMove(int newX, int newY, Board board);
 }
